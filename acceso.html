@@ -76,9 +76,16 @@
   <div class="container" id="asciiOutput">
     <pre id="asciiText" class="glitch"></pre>
     <pre id="asciiAutorText" class="glitch"></pre>
-    <div id="pulseEnter" onclick="window.location.href='ruta_del_archivo.pdf'">
-      ▌ACCESO GARANTIZADO▐<br>▐PULSA AQUÍ PARA ACCEDER AL ARCHIVO▐
-    </div>
+<div id="pulseEnter" style="cursor: pointer;">
+  ▌ACCESO GARANTIZADO▐<br>▐PULSA AQUÍ PARA ACCEDER AL ARCHIVO▐
+</div>
+
+<script>
+  document.getElementById("pulseEnter").addEventListener("click", function() {
+    window.location.href = "https://snow160302.github.io/DISSONANCE/files.html";
+  });
+</script>
+
   </div>
 
   <script>
