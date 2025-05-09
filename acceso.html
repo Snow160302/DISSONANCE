@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Terminal Seguro</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: black;
+      color: #33ff33;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      padding: 10px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .container {
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    .glitch {
+      position: relative;
+      color: #33ff33;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 cyan; }
+      20% { text-shadow: -2px 0 red, 2px 0 cyan; }
+      40% { text-shadow: 2px 0 red, -2px 0 cyan; }
+      60% { text-shadow: -2px 0 red, 2px 0 cyan; }
+      80% { text-shadow: 2px 0 red, -2px 0 cyan; }
+      100% { text-shadow: -2px 0 red, 2px 0 cyan; }
+    }
+
+    #asciiText {
+      font-size: clamp(8px, 2.2vw, 16px);
+      line-height: 1.1;
+    }
+
+    #asciiAutorText {
+      font-size: clamp(6px, 1.2vw, 12px);
+    }
+
+    #pulseEnter {
+      display: none;
+      margin-top: 30px;
+      font-size: clamp(10px, 2vw, 16px);
+      cursor: pointer;
+      animation: glitch 1s infinite;
+    }
+
+    @media (max-width: 400px) {
+      #asciiText {
+        font-size: 7px;
+      }
+
+      #asciiAutorText {
+        font-size: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="asciiOutput">
+    <pre id="asciiText" class="glitch"></pre>
+    <pre id="asciiAutorText" class="glitch"></pre>
+    <div id="pulseEnter" onclick="window.location.href='ruta_del_archivo.pdf'">
+      ▌ACCESO GARANTIZADO▐<br>▐PULSA AQUÍ PARA ACCEDER AL ARCHIVO▐
+    </div>
+  </div>
+
+  <script>
+    const asciiLines = [
+      "██████╗ ██╗███████╗███████╗ ██████╗ ███╗   ██╗ █████╗ ███╗   ██╗ ██████╗███████╗",
+      "██╔══██╗██║██╔════╝██╔════╝██╔═══██╗████╗  ██║██╔══██╗████╗  ██║██╔════╝██╔════╝",
+      "██║  ██║██║███████╗███████╗██║   ██║██╔██╗ ██║███████║██╔██╗ ██║██║     █████╗  ",
+      "██║  ██║██║╚════██║╚════██║██║   ██║██║╚██╗██║██╔══██║██║╚██╗██║██║     ██╔══╝  ",
+      "██████╔╝██║███████║███████║╚██████╔╝██║ ╚████║██║  ██║██║ ╚████║╚██████╗███████╗",
+      "╚═════╝ ╚═╝╚══════╝╚══════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝╚══════╝"
+    ];
+
+    const asciiLines2 = [
+      "_    ()         __   ,",
+      "[|}y  []gnacio  [|-ernandez",
+    ];
+
+    const asciiText = document.getElementById("asciiText");
+    const autorText = document.getElementById("asciiAutorText");
+    const pulseEnter = document.getElementById("pulseEnter");
+
+    function imprimirLinea(lines, container, index, callback) {
+      if (index < lines.length) {
+        container.innerHTML += lines[index] + "\n";
+        setTimeout(() => imprimirLinea(lines, container, index + 1, callback), 200);
+      } else if (callback) {
+        callback();
+      }
+    }
+
+    function iniciarAnimacion() {
+      imprimirLinea(asciiLines, asciiText, 0, () => {
+        imprimirLinea(asciiLines2, asciiAutorText, 0, () => {
+          pulseEnter.style.display = "block";
+        });
+      });
+    }
+
+    iniciarAnimacion();
+  </script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barra Retro ASCII</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      background-color: black;
+      color: white;
+      padding: 0;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .barra-retro {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+      position: relative;
+      overflow: hidden;
+      margin-top: 30px;
+    }
+
+    .barra-retro span {
+      font-size: 14px;
+      white-space: nowrap;
+      color: #00FF00;
+      animation: movimiento 10s steps(20) infinite;
+    }
+
+    @keyframes movimiento {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .botones-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px 40px;
+      padding: 60px 20px;
+      width: 100%;
+      max-width: 1000px;
+      box-sizing: border-box;
+      justify-items: center;
+    }
+
+    .boton-retro {
+      background-color: transparent;
+      color: #00FF00;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      padding: 14px 22px;
+      text-align: center;
+      cursor: pointer;
+      text-transform: uppercase;
+      border: none;
+      outline: none;
+      width: 100%;
+      max-width: 150px;
+    }
+
+    .boton-final {
+      margin-top: 80px;
+      background-color: transparent;
+      color: #00FF00;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      padding: 16px 30px;
+      text-align: center;
+      cursor: pointer;
+      text-transform: uppercase;
+      border: none;
+      outline: none;
+    }
+
+    /* Responsive breakpoints */
+    @media (max-width: 1024px) {
+      .botones-container {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .botones-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .botones-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="barra-retro">
+    <span>╔═══ TODOS LOS ARCHIVOS SE ENCUENTRAN CODIFICADOS PARA SU PROTECCIÓN. NO POSEEN UN CÓDIGO RELACIONABLE. ║═══</span>
+  </div>
+
+  <div class="botones-container">
+    <!-- 20 botones -->
+    <button class="boton-retro">V0-QJ5M9F1</button>
+    <button class="boton-retro">V0-PQ5V6Z7</button>
+    <button class="boton-retro">V0-MH8L4G2</button>
+    <button class="boton-retro">V0-XN1W3Q8</button>
+    <button class="boton-retro">V0-RV2D7N3</button>
+    <button class="boton-retro">V0-UC5T1Z9</button>
+    <button class="boton-retro">V0-HA4W2X7</button>
+    <button class="boton-retro">V0-BJ8R3Q5</button>
+    <button class="boton-retro">V0-QP2V7L6</button>
+    <button class="boton-retro">V0-XY5J3Z8</button>
+    <button class="boton-retro">V0-AR7B1N9</button>
+    <button class="boton-retro">V0-UV6W2K4</button>
+    <button class="boton-retro">V0-KP2V7W8</button>
+    <button class="boton-retro">V0-KD3B9F1</button>
+    <button class="boton-retro">V0-LD3C8P7</button>
+    <button class="boton-retro">V0-MD7T1V9</button>
+    <button class="boton-retro">V0-AB9JH2</button>
+    <button class="boton-retro">V0-JK9Y4B6</button>
+    <button class="boton-retro">V0-SW9M1K5</button>
+    <button class="boton-retro">V0-LF7P2A5</button>
+  </div>
+
+  <button class="boton-final">ACCESO RESTRINGIDO</button>
+</body>
+</html>
